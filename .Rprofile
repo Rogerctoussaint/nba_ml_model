@@ -11,3 +11,10 @@ if(!require(RCurl)) install.packages('RCurl'); require(RCurl)
 if(!require(magrittr)) install.packages('magrittr'); require(magrittr)
 
 filter <- dplyr::filter
+
+#### ---- Load our functions ---- ####
+source('./code/scrape_odds.R')
+
+
+#### ---- Load NBA dependent datasets ---- ####
+nbastatR::assign_nba_teams()

@@ -1,5 +1,3 @@
-
-
 scrape_odds <- function() {
   
   # Scrape raw odds from the website
@@ -91,4 +89,3 @@ scrape_odds <- function() {
   # Return the odds table  
   odds_table
 }
-
