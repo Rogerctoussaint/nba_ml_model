@@ -5,5 +5,9 @@ if(!require(ballr)) install.packages('ballr'); require(ballr)
 if(!require(nbastatR)) install.packages('nbastatR'); require(nbastatR)
 if(!require(ggplot2)) install.packages('ggplot2'); require(ggplot2)
 if(!require(h2o)) install.packages('h2o'); require(h2o)
+if(!require(rvest)) install.packages('rvest'); require(rvest)
+if(!require(XML)) install.packages('XML'); require(XML)
+if(!require(RCurl)) install.packages('RCurl'); require(RCurl)
+if(!require(magrittr)) install.packages('magrittr'); require(magrittr)
 
 filter <- dplyr::filter
