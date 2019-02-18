@@ -9,7 +9,9 @@ if(!require(rvest)) install.packages('rvest'); require(rvest)
 if(!require(XML)) install.packages('XML'); require(XML)
 if(!require(RCurl)) install.packages('RCurl'); require(RCurl)
 if(!require(magrittr)) install.packages('magrittr'); require(magrittr)
+if(!require(lubridate)) install.packages('lubridate'); require(lubridate)
 
+# Set filter to the dplyr function
 filter <- dplyr::filter
 
 #### ---- Load our functions ---- ####
