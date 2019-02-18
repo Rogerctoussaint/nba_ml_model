@@ -16,7 +16,9 @@ filter <- dplyr::filter
 
 #### ---- Load our functions ---- ####
 source('./code/scrape_odds.R')
-
+source('./code/pull_game_result_data.R')
+source('./code/pull_team_shooting_data.R')
 
 #### ---- Load NBA dependent datasets ---- ####
 nbastatR::assign_nba_teams()
+nbastatR::assign_nba_players()
