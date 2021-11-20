@@ -1,31 +1,31 @@
-team_name,team_abrev
-Washington Wizards,WAS
-Utah Jazz,UTA
-Toronto Raptors,TOR
-San Antonio Spurs,SAS
-Sacramento Kings,SAC
-Portland Trail Blazers,POR
-Phoenix Suns,PHX
-Philadelphia 76ers,PHI
-Orlando Magic,ORL
-Oklahoma City Thunder,OKC
-New York Knicks,NYK
-New Orleans Pelicans,NOP
-Minnesota Timberwolves,MIN
-Milwaukee Bucks,MIL
-Miami Heat,MIA
-Memphis Grizzlies,MEM
-Los Angeles Lakers,LAL
-Los Angeles Clippers,LAC
-Indiana Pacers,IND
-Houston Rockets,HOU
-Golden State Warriors,GSW
-Detroit Pistons,DET
-Denver Nuggets,DEN
-Dallas Mavericks,DAL
-Cleveland Cavaliers,CLE
-Chicago Bulls,CHI
-Charlotte Hornets,CHA
-Brooklyn Nets,BKN
-Boston Celtics,BOS
-Atlanta Hawks,ATL
+team_name,team_abrev,odds_name
+Washington Wizards,WAS,Washington
+Utah Jazz,UTA,Utah
+Toronto Raptors,TOR,Toronto
+San Antonio Spurs,SAS,SanAntonio
+Sacramento Kings,SAC,Sacramento
+Portland Trail Blazers,POR,Portland
+Phoenix Suns,PHX,Phoenix
+Philadelphia 76ers,PHI,Philadelphia
+Orlando Magic,ORL,Orlando
+Oklahoma City Thunder,OKC,OklahomaCity
+New York Knicks,NYK,NewYork
+New Orleans Pelicans,NOP,NewOrleans
+Minnesota Timberwolves,MIN,Minnesota
+Milwaukee Bucks,MIL,Milwaukee
+Miami Heat,MIA,Miami
+Memphis Grizzlies,MEM,Memphis
+Los Angeles Lakers,LAL,LALakers
+Los Angeles Clippers,LAC,LAClippers
+Indiana Pacers,IND,Indiana
+Houston Rockets,HOU,Houston
+Golden State Warriors,GSW,GoldenState
+Detroit Pistons,DET,Detroit
+Denver Nuggets,DEN,Denver
+Dallas Mavericks,DAL,Dallas
+Cleveland Cavaliers,CLE,Cleveland
+Chicago Bulls,CHI,Chicago
+Charlotte Hornets,CHA,Charlotte
+Brooklyn Nets,BKN,Brooklyn
+Boston Celtics,BOS,Boston
+Atlanta Hawks,ATL,Atlanta

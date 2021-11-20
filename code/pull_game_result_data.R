@@ -1,8 +1,10 @@
 
-pull_game_result_data <- function(year = 2018) {
+pull_game_result_data <- function(season = '2021-22', running=TRUE) {
         
-  teams <- fread('./data/team_abreviations.csv')
+  teams <- data.table::fread('./data/team_abreviations.csv')
   team_abrev <- as.character(teams$team_abrev)
+  
+  year <- as.integer(substring(season, 1, 4)) + 1
     
   team_results <- NULL
     
@@ -18,12 +20,19 @@ pull_game_result_data <- function(year = 2018) {
     if (curr_team == 'PHX') {
       curr_team <- 'PHO'
     }
-    temp <- ballr::NBASeasonTeamByYear(curr_team, year) %>% as.data.frame() 
+    capture.output(temp <- ballr::NBASeasonTeamByYear(curr_team, year) %>% as.data.frame())
     temp$team <- i
     team_results <- team_results %>% 
       rbind(temp) %>% 
       as.data.frame()
   }
+  
+  ## fix dates
+  team_results$date <- paste0(
+    trimws(substring(team_results$date, 13, 17)),
+    stringr::str_pad(match(substring(team_results$date, 6, 8), month.abb), 2, 'left', '0'),
+    stringr::str_pad(trimws(gsub(',', '', substring(team_results$date, 10,12))), 2, 'left', '0') 
+  )
     
   team_results <- team_results %>%
     left_join(teams, by = c('opponent' = 'team_name')) %>%
@@ -45,13 +54,31 @@ pull_game_result_data <- function(year = 2018) {
       opp_abrev = as.character(opp_abrev),
       home_ind = ifelse(home_ind == '@', 0, 1),
       win_ind = ifelse(team_score > opp_score, 1, 0),
-      date = mdy(date)
-    ) %>%
-    group_by(team_abrev) %>% 
-    mutate(
-      team_points_for = mean(team_score, na.rm = TRUE),
-      team_points_against = mean(opp_score, na.rm = TRUE)
-    ) %>%
+      date = (date)
+    )
+  
+  if (running == FALSE) {
+    team_results <- team_results %>%
+      group_by(team_abrev) %>% 
+      mutate(
+        team_points_for = mean(team_score, na.rm = TRUE),
+        team_points_against = mean(opp_score, na.rm = TRUE)
+      ) %>%
+      as.data.frame()
+  } else{
+    team_results <- team_results %>%
+      arrange(date) %>%
+      group_by(team_abrev) %>% 
+      mutate(
+        rec = 1,
+        team_points_for = (cumsum(team_score)-team_score) / (cumsum(rec)-1),
+        team_points_against = (cumsum(opp_score)-opp_score) / (cumsum(rec)-1)
+      ) %>%
+      select(-rec) %>%
+      as.data.frame()
+  }
+  
+  team_results <- team_results %>%
     select(
       team_abrev, opp_abrev, date, start_time, home_ind, team_score, opp_score, 
       score_diff, team_days_between_games, win_ind, team_wins, team_losses, 
